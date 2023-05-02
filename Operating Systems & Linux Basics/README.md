@@ -46,6 +46,8 @@ fi
  <br />
  Write a bash script using Vim editor that checks all the processes running for the current user (USER env var) and prints out the processes in console. Hint: use ps aux command and grep for the user.
  
+	
+	
    **script:**
 ```sh
  #!/bin/bash
@@ -65,6 +67,8 @@ ps aux | grep "$user"
  <br />
  Extend the previous script to ask for a user input for sorting the processes output either by memory or CPU consumption, and print the sorted list.
 
+	
+	
     **script:**
 ```sh
  #!/bin/bash
@@ -92,6 +96,8 @@ fi
  Extend the previous script to ask additionally for user input about how many processes to print. Hint: use head program to limit the number of outputs.
 Context: We have a ready NodeJS application that needs to run on a server. The app is already configured to read in environment variables.
  
+	
+	
     **script:**
 ```sh
  #!/bin/bash
