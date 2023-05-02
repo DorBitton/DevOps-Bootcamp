@@ -69,7 +69,7 @@ ps aux | grep "$user"
 
 	
 	
-    **script:**
+   **script:**
 ```sh
  #!/bin/bash
 
@@ -98,7 +98,7 @@ Context: We have a ready NodeJS application that needs to run on a server. The a
  
 	
 	
-    **script:**
+   **script:**
 ```sh
  #!/bin/bash
 
