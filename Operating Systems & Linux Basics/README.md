@@ -4,8 +4,42 @@ Exercises for Module "Linux"
 - EXERCISE 1: Linux Mint Virtual Machine
 Create a Linux Mint Virtual Machine on your computer. Check the distribution, which package manager it uses (yum, apt, apt-get). Which CLI editor is configured (Nano, Vi, Vim). What software center/software manager it uses. Which shell is configured for your user.
 
-- EXERCISE 2: Bash Script - Install Java
+
+<details>
+<summary>Exercise 2: Bash Script - Install Java </summary>
+ <br />
+
 Write a bash script using Vim editor that installs the latest java version and checks whether java was installed successfully by executing a java -version command. Checks if it was successful and prints a success message, if not prints a failure message.
+
+Execute script with sudo!
+  
+  
+  **script:**
+```sh
+#!/bin/bash
+
+apt update
+apt install -y default-jre
+
+java_version=$(java -version > /dev/null 2>&1 >| grep "java version\|openjdk version" | awk '{print substr($3,2,2)}')
+
+if [ "$java_version" == "" ]
+then
+    echo Installing Java has failed. No java version found	
+elif [ "$java_version" == "1." ]
+then
+    echo An old version of Java installation found
+elif [ "$java_version" -ge 11 ]
+then
+    echo Java version 11 or greater installed successfully
+fi
+```
+  
+  
+  
+  
+  
+</details>
 
 - EXERCISE 3: Bash Script - User Processes
 Write a bash script using Vim editor that checks all the processes running for the current user (USER env var) and prints out the processes in console. Hint: use ps aux command and grep for the user.
