@@ -3,7 +3,7 @@
 Exercises for Module "Linux":
 
 <details>
-<summary>EXERCISE 1: Linux Mint Virtual Machine </summary>
+<summary>Exercise 1: Linux Mint Virtual Machine </summary>
  <br />
 Create a Linux Mint Virtual Machine on your computer. Check the distribution, which package manager it uses (yum, apt, apt-get). Which CLI editor is configured (Nano, Vi, Vim). What software center/software manager it uses. Which shell is configured for your user.
 
@@ -42,29 +42,80 @@ fi
 </details>
 
 <details>
-<summary>EXERCISE 3: Bash Script - User Processes </summary>
+<summary>Exercise 3: Bash Script - User Processes </summary>
  <br />
  Write a bash script using Vim editor that checks all the processes running for the current user (USER env var) and prints out the processes in console. Hint: use ps aux command and grep for the user.
+ 
+   **script:**
+```sh
+ #!/bin/bash
+
+user=$(whoami)
+
+echo "Displaying processes running for the user: $user"
+
+ps aux | grep "$user"
+ 
+ ```
  
  </details>
 
 <details>
-<summary>EXERCISE 4: Bash Script - User Processes Sorted </summary>
+<summary>Exercise 4: Bash Script - User Processes Sorted </summary>
  <br />
  Extend the previous script to ask for a user input for sorting the processes output either by memory or CPU consumption, and print the sorted list.
 
+    **script:**
+```sh
+ #!/bin/bash
+
+user=$(whoami)
+
+read -p "Do you want to sort the running processes by CPU or Memory?" sort_by
+echo "Displaying processes running for the user: $user, sorted by $sort_by"
+
+if [ $sort_by == "memory" ]
+then
+ ps aux --sort -rss | grep "$user"
+elif [ $sort_by == "cpu" ]
+then 
+ ps aux --sort -pcpu | grep "$user"
+else
+	echo "Wrong input provided."
+fi
+ ```
  </details>
 
 <details>
-<summary>EXERCISE 5: Bash Script - Number of User Processes Sorted</summary>
+<summary>Exercise 5: Bash Script - Number of User Processes Sorted</summary>
  <br />
  Extend the previous script to ask additionally for user input about how many processes to print. Hint: use head program to limit the number of outputs.
 Context: We have a ready NodeJS application that needs to run on a server. The app is already configured to read in environment variables.
  
+    **script:**
+```sh
+ #!/bin/bash
+
+user=$(whoami)
+
+read -p "Do you want to sort the running processes by CPU or Memory?" sort_by
+read -p "How many lines do you wish to present?" lines
+echo "Displaying processes running for the user: $user, sorted by $sort_by"
+
+if [ $sort_by == "memory" ]
+then
+ ps aux --sort -rss | grep "$user" | head -$lines
+elif [ $sort_by == "cpu" ]
+then 
+ ps aux --sort -pcpu | grep "$user" | head -$lines
+else
+	echo "Wrong input provided."
+fi
+ ```
  </details>
 
 <details>
-<summary>EXERCISE 6: Bash Script - Start Node App </summary>
+<summary>Exercise 6: Bash Script - Start Node App </summary>
  <br />
 Write a bash script with following logic:
 Install NodeJS and NPM and print out which versions were installed
@@ -81,14 +132,14 @@ It will give you a warning about LOG_DIR variable not set. You can ignore it for
  </details>
 
 <details>
-<summary>EXERCISE 7: Bash Script - Node App Check Status </summary>
+<summary>Exercise 7: Bash Script - Node App Check Status </summary>
  <br />
  Extend the script to check after running the application that the application has successfully started and prints out the application’s running process and the port where it’s listening.
  
   </details>
 
  <details>
-<summary>EXERCISE 8: Bash Script - Node App with Log Directory</summary>
+<summary>Exercise 8: Bash Script - Node App with Log Directory</summary>
  <br />
 Extend the script to accept a parameter input log_directory: a directory where application will write logs.
 The script will check whether the parameter value is a directory name that doesn’t exist and will create the directory, if it does exist, it sets the env var LOG_DIR to the directory’s absolute path before running the application, so the application can read the LOG_DIR environment variable and write its logs there.
@@ -98,7 +149,7 @@ This is what the output of running the application must look like: node-app-outp
   </details>
 
   <details>
-<summary>EXERCISE 9: Bash Script - Node App with Service user</summary>
+<summary>Exercise 9: Bash Script - Node App with Service user</summary>
  <br />
    You’ve been running the application with your user. But we need to adjust that and create own service user: myapp for the application to run. So extend the script to create the user and then run the application with the service user.
  </details>
