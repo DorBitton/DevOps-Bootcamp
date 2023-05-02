@@ -34,18 +34,34 @@ then
     echo Java version 11 or greater installed successfully
 fi
 ```
-  
-  
-  
-  
-  
 </details>
 
-- EXERCISE 3: Bash Script - User Processes
-Write a bash script using Vim editor that checks all the processes running for the current user (USER env var) and prints out the processes in console. Hint: use ps aux command and grep for the user.
+<details>
+<summary>EXERCISE 3: Bash Script - User Processes </summary>
+ <br />
+ Write a bash script using Vim editor that checks all the processes running for the current user (USER env var) and prints out the processes in console. Hint: use ps aux command and grep for the user.
+ 
+ </details>
 
-- EXERCISE 4: Bash Script - User Processes Sorted
-Extend the previous script to ask for a user input for sorting the processes output either by memory or CPU consumption, and print the sorted list.
+<details>
+<summary>Exercise 2: Bash Script - Install Java </summary>
+ <br />
+ 
+ </details>
+
+<details>
+<summary>EXERCISE 4: Bash Script - User Processes Sorted </summary>
+ <br />
+ Extend the previous script to ask for a user input for sorting the processes output either by memory or CPU consumption, and print the sorted list.
+
+ </details>
+
+<details>
+<summary>Exercise 2: Bash Script - Install Java </summary>
+ <br />
+ 
+ </details>
+
 
 - EXERCISE 5: Bash Script - Number of User Processes Sorted
 Extend the previous script to ask additionally for user input about how many processes to print. Hint: use head program to limit the number of outputs.
